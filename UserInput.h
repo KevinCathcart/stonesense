@@ -41,3 +41,4 @@ void action_incrZ(uint32_t keymod);
 
 extern bool isRepeatable(int32_t keycode);
 extern bool doKey(int32_t keycode, uint32_t keymodcode);
+extern bool doCommand(const std::string& command);

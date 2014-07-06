@@ -325,3 +325,13 @@ bool getKeyStrings(int32_t keycode, string*& keyname, string*& actionname){
     }
     return false;
 }
+
+bool doCommand(const std::string& command){
+    for(int i=0; actionnamemap[i].func != action_invalid; i++) {
+        if(actionnamemap[i].name == command) {
+            actionnamemap[i].func(0);
+            return true;
+        }
+    }
+    return false;
+}

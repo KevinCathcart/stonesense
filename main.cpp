@@ -18,6 +18,7 @@ using namespace std;
 #include "GroundMaterialConfiguration.h"
 #include "ContentLoader.h"
 #include "OcclusionTest.h"
+#include "UserInput.h"
 
 #define WIDTH        640
 #define HEIGHT       480
@@ -600,6 +601,12 @@ DFhackCExport command_result plugin_shutdown ( color_ostream &out )
 //and the actual stonesense command. Maybe.
 DFhackCExport command_result stonesense_command(color_ostream &out, std::vector<std::string> & params)
 {
+    if (params.size() == 2) {
+        if(params[0] == "command" || params[0] == "cmd") {
+            if (doCommand(params[1])) return CR_OK;
+            else return CR_NOT_IMPLEMENTED;
+        }
+    }
     if(stonesense_started) {
 		out.print("Stonesense already running.\n");
 		return CR_OK;

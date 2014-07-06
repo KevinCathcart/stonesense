@@ -1045,7 +1045,7 @@ void paintboard()
 
 		drawSelectionCursor(segment);
 
-		drawDebugCursor(segment);
+		//drawDebugCursor(segment);
 
         if(ssConfig.debug_mode) {
             draw_textf_border(font, uiColor(1), 10, 3*al_get_font_line_height(font), 0, "Map Read Time: %.2fms", ssTimers.read_time);

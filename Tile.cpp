@@ -553,6 +553,15 @@ void Tile::AssembleTile( void )
 
         }
     }
+    // Debug Cursor 
+    Crd3D dfCursor = ownerSegment->segState.dfCursor;
+    if(ssConfig.show_osd && dfCursor.x == x && dfCursor.y == y && dfCursor.z == z) {
+        AssembleSpriteFromSheet(SPRITEOBJECT_CURSOR, IMGObjectSheet, uiColor(2), drawx, drawy, this );
+    }
+
+    // Selection Cursor
+
+    // TODO: implement cursor shadow sprite. It is already in the IMGObjectSheet spritesheet.
 	
 	// Creature Names / Info
     if(occ.bits.unit && creature && (ssConfig.show_hidden_tiles || !designation.bits.hidden)) {
